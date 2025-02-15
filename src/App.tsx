@@ -1,17 +1,18 @@
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import MainPage from "./components/MainPage/MainPage";
+import TvShowPage from "./components/TvShowPage/TvShowPage";
 
-
-import './App.css'
-import MainPage from './components/MainPage/MainPage'
 
 function App() {
-  
-
-  return (
-    <div>
-      <MainPage />
-    </div>
-      
-  )
+    return (
+        <Router>
+            <Routes>
+                <Route path="/" element={<MainPage />} />
+                <Route path="/show/:id" element={<TvShowPage />} />
+            </Routes>
+        </Router>
+    );
 }
 
-export default App
+export default App;

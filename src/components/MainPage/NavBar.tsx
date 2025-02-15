@@ -20,13 +20,7 @@ export default function NavBar(){
                 </div>
                 <div>
                     <button onClick={() => darkModeHandler()}>
-                        {
-                            darkMode && <FaMoon />
-                        }
-                        {
-                            !darkMode && <FaMoon />
-                        }
-                    
+                        <FaMoon />        
                     </button>
                 </div>
                 <div>
