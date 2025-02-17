@@ -5,8 +5,13 @@ interface TvShow {
     airdate: string;
 }
 
-interface Image {
-    file_path: string;
+interface Details {
+    name: string;
+    img: string;
+    vote_average: number;
+    vote_count: number;
+    first_air_date: string;
+    last_air_date: string;
 }
 export async function fetchTvShows(page:number): Promise<TvShow[]> {
     try {
@@ -37,9 +42,9 @@ export async function fetchTvShows(page:number): Promise<TvShow[]> {
 
 
 
-export async function fetchTvShowImages(tvShowId: number): Promise<Image[]> {
+export async function fetchTvDeails(tvShowId: number): Promise<Details> {
     try {
-        const url = `https://api.themoviedb.org/3/tv/${tvShowId}/images`;
+        const url = `https://api.themoviedb.org/3/tv/${tvShowId}?language=en-US`;
         const options = {
             method: 'GET',
             headers: {
@@ -52,12 +57,23 @@ export async function fetchTvShowImages(tvShowId: number): Promise<Image[]> {
         const data = await response.json();
         console.log(tvShowId)
 
-        return data.posters.map((image: any) => ({
-            file_path: image.file_path,
-           
-        }));
+        return {
+            name: data.name,
+            img: data.backdrop_path,
+            vote_average: data.vote_average,
+            vote_count: data.vote_count,
+            first_air_date: data.first_air_date,
+            last_air_date: data.last_air_date,
+          };
     } catch (error) {
         console.error("Error fetching TV show images from API:", error);
-        return [];
+        return {
+            name: '',
+            img: '',
+            vote_average: 0,
+            vote_count: 0,
+            first_air_date: '',
+            last_air_date: ''
+        };
     }
 }
