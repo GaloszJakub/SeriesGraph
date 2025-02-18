@@ -12,7 +12,7 @@ export default function NavBar() {
 		<div className=" bg-[#202020] dark:text-white text-black  h-[60px] flex items-center border-b border-gray-600">
 			<div className="flex flex-row justify-between container mx-auto">
 				<div className="font-bold text-2xl">
-					<h2 className="text-3xl uppercase">Series Graph</h2>
+					<h2 className="text-3xl uppercase px-8">Series Graph</h2>
 				</div>
 				<div className="flex items-center gap-x-6">
 					<div>

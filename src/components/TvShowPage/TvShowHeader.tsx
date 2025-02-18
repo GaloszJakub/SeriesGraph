@@ -13,6 +13,7 @@ interface Details {
   vote_count: number;
   first_air_date: string;
   last_air_date: string;
+  number_of_seasons: number;
 }
 
 export default function TvShowHeader({ tvShowId }: TvShowHeaderProps) {
@@ -36,13 +37,13 @@ export default function TvShowHeader({ tvShowId }: TvShowHeaderProps) {
   }
 
   return (
-    <div className="h-[36rem] overflow-hidden bg-black flex flex-row">
+    <div className=" overflow-hidden bg-black flex flex-row min-h-[85vh]">
       
-      <div className="flex flex-col items-center justify-center h-full w-1/3">
+      <div className="flex flex-col items-center justify-center h-full w-1/3 pt-40">
         <img
         src={`https://image.tmdb.org/t/p/original${details.img}`}
         alt="TV Show"
-        className="w-52 h-72 rounded-2xl bg-black object-cover"
+        className=" w-2/3 rounded-2xl bg-black object-cover"
       />
 
         <div className="text-white text-xl text-center font-semibold mt-4">
@@ -50,14 +51,14 @@ export default function TvShowHeader({ tvShowId }: TvShowHeaderProps) {
             {details.name}
           </h2>
           <h3 className="">
-            {details.vote_average} ({details.vote_count} głosów)
+            {details.vote_average.toFixed(1)} ({details.vote_count} głosów)
           </h3>
           <p className="text-sm font-normal">
             {details.first_air_date} - {details.last_air_date}
           </p>
         </div>
       </div>
-      <TvShowGraph tvShowId={tvShowId} />
+      <TvShowGraph tvShowId={tvShowId} number_of_seasons={details.number_of_seasons}/>
     </div>
   );
 }
