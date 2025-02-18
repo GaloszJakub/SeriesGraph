@@ -10,15 +10,15 @@ export default function NavBar() {
 	}
 	return (
 		<div className=" bg-[#202020] dark:text-white text-black  h-[60px] flex items-center border-b border-gray-600">
-			<div className="flex flex-row justify-between container mx-auto">
+			<div className="flex flex-row justify-between container mx-auto px-5">
 				<div className="font-bold text-2xl">
-					<h2 className="text-3xl uppercase px-8">Series Graph</h2>
+					<h2 className="text-2xl xm:text-3xl px-8 uppercase">Series Graph</h2>
 				</div>
 				<div className="flex items-center gap-x-6">
 					<div>
 						<label
 							htmlFor="searchInput"
-							className="bg-gray-600 rounded-full flex items-center px-4 py-1 focus-within:ring-2 focus-within:ring-gray-200">
+							className="bg-gray-600 rounded-full sm:flex items-center px-4 py-1 focus-within:ring-2 focus-within:ring-gray-200 hidden">
 							<FaSearch className="mr-2 text-gray-200" />
 							<input
 								id="searchInput"
@@ -28,13 +28,14 @@ export default function NavBar() {
 							/>
 						</label>
 					</div>
+					<FaSearch className="mr-2 text-gray-200 mt-1 sm:hidden" />
 					<div>
 						<button onClick={() => darkModeHandler()}>
-							<FaMoon />
+							<FaMoon className="mt-2" />
 						</button>
 					</div>
 					<div>
-						<select className="w-full bg-transparent border-0 border-gray-300 text-gray-200  p  rounded leading-tight focus:outline-none  focus:bg-[#383838] duration-300 text-sm font-semibold">
+						<select className="w-full bg-transparent border-0 border-gray-300 text-gray-200  rounded leading-tight focus:outline-none  focus:bg-[#383838] duration-300 text-sm font-semibold ">
 							<option>PL</option>
 							<option>US</option>
 						</select>
