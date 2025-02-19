@@ -1,8 +1,10 @@
 import React from 'react'
 import { FaMoon, FaSearch } from 'react-icons/fa'
+import { useNavigate } from 'react-router-dom'
 
 export default function NavBar() {
 	const [darkMode, setDarkMode] = React.useState(true)
+	const navigate = useNavigate()
 
 	const darkModeHandler = () => {
 		setDarkMode(!darkMode)
@@ -12,7 +14,9 @@ export default function NavBar() {
 		<div className=" bg-[#202020] dark:text-white text-black  h-[60px] flex items-center border-b border-gray-600">
 			<div className="flex flex-row justify-between container mx-auto px-5">
 				<div className="font-bold text-2xl">
-					<h2 className="text-2xl xm:text-3xl px-8 uppercase">Series Graph</h2>
+					<h2
+					onClick={() => navigate('/')} 
+					className="text-2xl xm:text-3xl px-8 uppercase cursor-pointer">Series Graph</h2>
 				</div>
 				<div className="flex items-center gap-x-6">
 					<div>

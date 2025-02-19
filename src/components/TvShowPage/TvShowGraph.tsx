@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { fetchSeasonDetails } from "../../services/ApiService";
+import * as HoverCard from '@radix-ui/react-hover-card';
 
 interface TvShowHeaderProps {
   tvShowId: number;
@@ -11,6 +12,7 @@ interface Details {
   vote_average: number;
   vote_count: number;
   episode_number: number;
+  air_date: string;
 }
 
 export default function TvShowGraph({ tvShowId, number_of_seasons }: TvShowHeaderProps) {
@@ -77,6 +79,8 @@ export default function TvShowGraph({ tvShowId, number_of_seasons }: TvShowHeade
             {seasonDetails.length > 0 ? (
               seasonDetails.map((detail, i) => (
                 <div key={i} className="flex flex-col justify-center items-center ">
+                    <HoverCard.Root>
+                      <HoverCard.Trigger>
                     <div
                     className={`w-20 text-center my-[0.4rem] rounded-2xl text-black 
                          ${
@@ -90,12 +94,22 @@ export default function TvShowGraph({ tvShowId, number_of_seasons }: TvShowHeade
                         ? 'bg-orange-400'
                         : detail.vote_average > 2
                         ? 'bg-red-500'
-                        : 'bg-violet-700'
+                        : detail.vote_average == 0
+                        ? 'bg-white'
+                        : 'bg-violet-700'  
                     }`}
                     >
                         <p className="p-2">S{seasonIndex + 1}E{detail.episode_number}</p>
-                        <p className="my-[0.4rem] font-bold">{detail.vote_average.toFixed(1)}</p>
+                        <p className="py-[0.4rem] font-bold">{detail.vote_average.toFixed(1)}</p>
                     </div>
+                    </HoverCard.Trigger>
+                    <HoverCard.Content side="top" sideOffset={10}>
+                      <div className="bg-white text-black p-2 rounded-lg text-center">
+                        <p>{detail.name}</p>
+                        <p>{detail.air_date}</p>
+                      </div>
+                    </HoverCard.Content>
+                    </HoverCard.Root >
                 </div>
               ))
             ) : (
