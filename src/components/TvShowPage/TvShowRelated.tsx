@@ -42,7 +42,7 @@ export default function TvShowRelated({ tvShowId }: TvShowHeaderProps) {
                             onClick={() => handleRoute(show.id)}
                             className="bg-gray-800 p-2 rounded-lg shadow-md text-center cursor-pointer">
                             <img src={show.img} alt={show.title} className="w-full h-auto rounded-md mb-4 shadow-2xl" />
-                            <h2 className="text-sm sm:text-lg md:text-xl font-semibold">{show.title}</h2>
+                            <h2 className="text-sm sm:text-lg md:text-xl pb-2 font-semibold">{show.title}</h2>
                         </div>
                     ))}
                 </div>

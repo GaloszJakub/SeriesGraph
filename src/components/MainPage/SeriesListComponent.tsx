@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { fetchTvShows } from '../../services/ApiService'
-import { Navigate, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 interface tvShow {
 	id: number
