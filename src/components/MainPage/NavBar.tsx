@@ -1,22 +1,18 @@
-import React from 'react'
-import { FaMoon, FaSearch } from 'react-icons/fa'
+import { FaSearch } from 'react-icons/fa'
 import { useNavigate } from 'react-router-dom'
 
 export default function NavBar() {
-	const [darkMode, setDarkMode] = React.useState(true)
 	const navigate = useNavigate()
 
-	const darkModeHandler = () => {
-		setDarkMode(!darkMode)
-		document.body.classList.toggle('dark')
-	}
 	return (
 		<div className=" bg-[#202020] dark:text-white text-black  h-[60px] flex items-center border-b border-gray-600">
 			<div className="flex flex-row justify-between container mx-auto px-5">
 				<div className="font-bold text-2xl">
 					<h2
-					onClick={() => navigate('/')} 
-					className="text-2xl xm:text-3xl px-8 uppercase cursor-pointer">Series Graph</h2>
+						onClick={() => navigate('/')}
+						className="text-2xl xm:text-3xl sm:px-8 uppercase cursor-pointer text-nowrap">
+						Series Graph
+					</h2>
 				</div>
 				<div className="flex items-center gap-x-6">
 					<div>
@@ -33,11 +29,7 @@ export default function NavBar() {
 						</label>
 					</div>
 					<FaSearch className="mr-2 text-gray-200 mt-1 sm:hidden" />
-					<div>
-						<button onClick={() => darkModeHandler()}>
-							<FaMoon className="mt-2" />
-						</button>
-					</div>
+
 					<div>
 						<select className="w-full bg-transparent border-0 border-gray-300 text-gray-200  rounded leading-tight focus:outline-none  focus:bg-[#383838] duration-300 text-sm font-semibold ">
 							<option>PL</option>

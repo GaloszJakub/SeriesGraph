@@ -1,3 +1,4 @@
+// ApiService.tsx
 const API_TOKEN = import.meta.env.VITE_TMDB_API_TOKEN
 
 export interface TvShow {
@@ -25,7 +26,6 @@ export interface SeasonDetails {
 	air_date: string
 }
 
-
 export interface WatchProvider {
 	provider_id: number
 	provider_name: string
@@ -41,7 +41,7 @@ const defaultOptions = {
 	},
 }
 
-export async function fetchTvShows(category:string, page: number): Promise<TvShow[]> {
+export async function fetchTvShows(category: string, page: number): Promise<TvShow[]> {
 	try {
 		const url = `https://api.themoviedb.org/3/tv/${category}?language=en-US&page=${page}`
 		const response = await fetch(url, defaultOptions)
@@ -141,6 +141,24 @@ export async function fetchTvShowSimilar(id: number): Promise<TvShow[]> {
 		}))
 	} catch (error) {
 		console.error('Error fetching similar TV shows from API:', error)
+		return []
+	}
+}
+
+export async function searchTvShows(query: string, page: number = 1): Promise<TvShow[]> {
+	try {
+		const url = `https://api.themoviedb.org/3/search/tv?query=${encodeURIComponent(query)}&language=en-US&page=${page}`
+		const response = await fetch(url, defaultOptions)
+		const data = await response.json()
+
+		return data.results.map((tv: any) => ({
+			id: tv.id,
+			title: tv.name,
+			img: `https://image.tmdb.org/t/p/w500${tv.poster_path}`,
+			airdate: tv.first_air_date,
+		}))
+	} catch (error) {
+		console.error('Error searching TV shows:', error)
 		return []
 	}
 }
