@@ -25,6 +25,7 @@ export interface SeasonDetails {
 	air_date: string
 }
 
+
 export interface WatchProvider {
 	provider_id: number
 	provider_name: string
