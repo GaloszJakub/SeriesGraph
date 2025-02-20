@@ -1,4 +1,3 @@
-import * as Tabs from '@radix-ui/react-tabs'
 import { FaSearch } from 'react-icons/fa'
 
 export default function HeaderComponent() {
@@ -23,22 +22,7 @@ export default function HeaderComponent() {
 				</label>
 			</div>
 
-			<div className=" border-b-[1px]  w-full border-gray-600 container text-sm  sm:text-md">
-				<Tabs.Root defaultValue="tv" className="w-full max-w-md mx-auto ">
-					<Tabs.List className="flex justify-center mb-[-1px]">
-						<Tabs.Trigger
-							value="tv"
-							className="flex px-8 py-2 text-center font-medium text-gray-200 hover:text-blue-500 data-[state=active]:border-b-[1px] data-[state=active]:border-blue-500 data-[state=active]:text-blue-500">
-							Trending Shows
-						</Tabs.Trigger>
-						<Tabs.Trigger
-							value="series"
-							className="flex px-8 py-2 text-center font-medium text-gray-200 hover:text-blue-500 data-[state=active]:border-b-[1px] data-[state=active]:border-blue-500 data-[state=active]:text-blue-500">
-							Popular Shows
-						</Tabs.Trigger>
-					</Tabs.List>
-				</Tabs.Root>
-			</div>
+			
 		</div>
 	)
 }

@@ -40,9 +40,9 @@ const defaultOptions = {
 	},
 }
 
-export async function fetchTvShows(page: number): Promise<TvShow[]> {
+export async function fetchTvShows(category:string, page: number): Promise<TvShow[]> {
 	try {
-		const url = `https://api.themoviedb.org/3/tv/top_rated?language=en-US&page=${page}`
+		const url = `https://api.themoviedb.org/3/tv/${category}?language=en-US&page=${page}`
 		const response = await fetch(url, defaultOptions)
 		const data = await response.json()
 
