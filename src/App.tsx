@@ -9,7 +9,7 @@ function App() {
         <Router>
             <ScrollToTop />
             <Routes>
-                <Route path="/" element={<MainPage />} />
+                <Route path="/SeriesGraph" element={<MainPage />} />
                 <Route path="/show/:id" element={<TvShowPage />} />
             </Routes>
         </Router>
