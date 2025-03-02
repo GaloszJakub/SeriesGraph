@@ -42,22 +42,22 @@ export default function TvShowGraph({ tvShowId, number_of_seasons }: TvShowHeade
       {/* Sekcja z legendą */}
       <div className="text-white flex flex-row gap-x-4 items-end justify-center h-1/5">
         <div className="bg-green-950 w-4 h-4 rounded-full" />
-        <p>to je dobre</p>
+        <p>Awesome</p>
 
         <div className="bg-green-500 w-4 h-4 rounded-full" />
-        <p>git</p>
+        <p>Great</p>
 
         <div className="bg-yellow-300 w-4 h-4 rounded-full" />
-        <p>srednie</p>
+        <p>Good</p>
 
         <div className="bg-orange-400 w-4 h-4 rounded-full" />
-        <p>ponizen sredniej</p>
+        <p>Regular</p>
 
         <div className="bg-red-500 w-4 h-4 rounded-full" />
-        <p>złe</p>
+        <p>Bad</p>
 
         <div className="bg-violet-700 w-4 h-4 rounded-full" />
-        <p>ciulowe</p>
+        <p>Trash</p>
       </div>
 
       {/* Wyświetlenie numerów sezonów */}
