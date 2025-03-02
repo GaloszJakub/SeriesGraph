@@ -4,6 +4,7 @@ import HeaderComponent from './HeaderComponent'
 import SeriesListComponent from './SeriesListComponent'
 import SearchList from './SearchList'
 import Navbar from './NavBar'
+import FooterComponent from './FooterComponent'
 
 export default function MainPage() {
 	const [searchQuery, setSearchQuery] = useState('')
@@ -17,6 +18,7 @@ export default function MainPage() {
 			<Navbar />
 			<HeaderComponent onSearch={handleSearch} />
 			{searchQuery.trim() ? <SearchList query={searchQuery} /> : <SeriesListComponent />}
+			<FooterComponent />
 		</div>
 	)
 }
